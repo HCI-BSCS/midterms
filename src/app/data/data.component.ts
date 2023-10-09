@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Datas } from '../data.model';
 import { DataService } from '../data.service';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-data',

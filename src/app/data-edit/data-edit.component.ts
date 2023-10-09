@@ -10,9 +10,13 @@ import { Datas } from '../data.model';
   styleUrls: ['./data-edit.component.css']
 })
 export class DataEditComponent {
+  
   form!:FormGroup;
   index:number=0;
   editmode=false;
+  stats = [{'id':1, 'status':'out of stock'}, {'id':2, 'status': 'available'}, {'id':3, 'status': 'soon'}];
+  brands = [{'id':1, 'brand':'Nike'}, {'id':2, 'brand': 'Adidas'}, {'id':3, 'brand': 'Puma'}];
+  
 
     constructor(private dataservice:DataService, private router:Router, private actroute:ActivatedRoute){}
   
@@ -24,7 +28,7 @@ export class DataEditComponent {
       let status="";
          this.actroute.params.subscribe((params:Params)=>{
           if(params['index']){
-            this.index=params['index']
+            this.index=params['index'];
             const dataspec=this.dataservice.getSpecData(this.index);
             model=dataspec.model;
             brand=dataspec.brand;
@@ -47,12 +51,13 @@ export class DataEditComponent {
 
       
       onSubmit(){
+        const id = crypto.randomUUID();
         const model= this.form.value.model;
         const brand= this.form.value.brand;
         const img= this.form.value.img;
         const price= this.form.value.price;
         const status= this.form.value.status;
-        const data: Datas=new Datas(brand,model,price,img,status);
+        const data: Datas=new Datas(id,brand,model,price,img,status);
         if(this.editmode==true){
           this.dataservice.editData(this.index, data);
         }

@@ -2,3 +2,21 @@ img{
     width: 100px;
     height: 100px;
 }
+.danger{
+    background-color: red;
+    padding: 10px;
+    border-radius: 30px;
+    color: white;
+}
+.success{
+    background-color: green;
+    padding: 10px;
+    border-radius: 30px;
+    color: white;
+}
+.soon{
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 30px;
+    color: white;
+}

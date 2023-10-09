@@ -12,14 +12,14 @@
     </thead>
     <tbody>
         <tr >
-            <td>{{index+1}}</td>
+            <td>{{datas?.id}}</td>
             <td>{{datas?.brand}}</td>
             <td>{{datas?.model}}</td>
             <td>{{datas?.price}}</td>
             <td><img src="{{datas?.img}}"/></td>
-            <td *ngIf="datas?.status=='out of stock'" class="p-3 mb-2 bg-danger text-white">{{datas?.status}}</td>
-            <td *ngIf="datas?.status=='soon'" class="p-3 mb-2 bg-success text-white">{{datas?.status}}</td>
-            <td *ngIf="datas?.status=='available'" class="p-3 mb-2 bg-primary text-whites">{{datas?.status}}</td>
+            <td *ngIf="datas?.status=='out of stock'" ><span class="danger">{{datas?.status}}</span></td>
+            <td *ngIf="datas?.status=='soon'" ><span class="soon">{{datas?.status}}</span></td>
+            <td *ngIf="datas?.status=='available'" ><span class="success">{{datas?.status}}</span></td>
             <td><button class="btn btn-outline-primary" (click)="editButton()">Edit</button> 
                 <button class="btn btn-outline-danger" (click)="deleteButton()">Delete</button></td>
         </tr>
